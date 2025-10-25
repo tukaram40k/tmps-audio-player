@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>MP3 Player</title>
+  <style>
+      body { font-family: Arial, sans-serif; margin: 40px; background: #fafafa; }
+      h1 { color: #333; }
+      .track { margin-bottom: 15px; padding: 10px; background: #fff; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+      audio { width: 100%; outline: none; }
+  </style>
+</head>
+<body>
+<h1>Available Tracks</h1>
+<% if @tracks.empty? %>
+  <p>No MP3 files found.</p>
+<% else %>
+  <% @tracks.each do |track| %>
+    <div class="track">
+      <strong><%= track.name %></strong><br>
+      <audio controls>
+        <source src="<%= track.url %>" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  <% end %>
+<% end %>
+</body>
+</html>
