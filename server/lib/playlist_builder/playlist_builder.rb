@@ -1,4 +1,5 @@
 # builder interface
+
 class PlaylistBuilder
   def set_id
     raise NotImplementedError
@@ -8,7 +9,7 @@ class PlaylistBuilder
     raise NotImplementedError
   end
 
-  def set_playlist_type
+  def set_creator
     raise NotImplementedError
   end
 
@@ -16,7 +17,11 @@ class PlaylistBuilder
     raise NotImplementedError
   end
 
-  def set_tracks
+  def set_privacy_settings
+    raise NotImplementedError
+  end
+
+  def set_creation_date
     raise NotImplementedError
   end
 
@@ -24,15 +29,11 @@ class PlaylistBuilder
     raise NotImplementedError
   end
 
-  def set_privacy_settings
+  def set_playlist_type
     raise NotImplementedError
   end
 
-  def set_creator
-    raise NotImplementedError
-  end
-
-  def set_creation_date
+  def set_tracks
     raise NotImplementedError
   end
 end

@@ -1,5 +1,5 @@
 require_relative '../playlist_builder'
 
-class SystemPlaylistConcreteBuilder
+class SystemPlaylistConcreteBuilder < PlaylistBuilder
 
 end
