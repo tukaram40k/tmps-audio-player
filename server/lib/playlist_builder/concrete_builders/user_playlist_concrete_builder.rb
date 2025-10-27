@@ -8,36 +8,31 @@ class UserPlaylistConcreteBuilder < PlaylistBuilder
     @user_playlist = Playlist.new
   end
 
+  def reset
+    @user_playlist = Playlist.new
+  end
+
+  def playlist
+    user_playlist = @system_playlist
+    reset
+    user_playlist
+  end
+
   def set_id(id)
     @user_playlist.set_id(id)
   end
 
-  def set_name(name)
+  def set_metadata(name, creator, description)
     @user_playlist.set_name(name)
-  end
-
-  def set_creator(creator)
     @user_playlist.set_creator(creator)
-  end
-
-  def set_description(description)
     @user_playlist.set_description(description)
+    @user_playlist.set_creation_date
   end
 
-  def set_privacy_settings(privacy_settings)
+  def set_system_settings(privacy_settings)
     @user_playlist.set_privacy_settings(privacy_settings)
-  end
-
-  def set_creation_date
-    @user_playlist.set_creation_date(Time.now)
-  end
-
-  def set_order
-    @user_playlist.set_order('regular')
-  end
-
-  def set_playlist_type
-    @user_playlist.set_type('user-made')
+    @user_playlist.set_allowed_order(%w[regular mixed smart custom])
+    @user_playlist.set_type('user-custom-playlist')
   end
 
   def set_tracks(tracks)

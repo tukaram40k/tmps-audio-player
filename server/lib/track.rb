@@ -7,6 +7,7 @@ class Track
     @url = File.join(base_url, filename)
   end
 
+  # change this later
   def self.all
     music_dir = File.join('public', 'audio_files')
     Dir.entries(music_dir)

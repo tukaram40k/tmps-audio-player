@@ -1,9 +1,13 @@
 class Playlist
   attr_accessor :id, :name, :creator, :description,
                 :privacy_settings, :creation_date,
-                :order, :type, :tracks
+                :allowed_order, :dynamic, :type, :persistent,
+                :tracks
 
   def initialize
+    @order = []
+    @dynamic = false
+    @persistent = true
     @tracks = []
   end
 
@@ -27,12 +31,22 @@ class Playlist
     @privacy_settings = privacy_settings
   end
 
-  def set_creation_date(date)
-    @creation_date = date
+  def set_creation_date
+    @creation_date = Time.now
   end
 
-  def set_order(order)
-    @order = order
+  def set_allowed_order(order_list)
+    order_list.each do |order|
+      @allowed_order << order
+    end
+  end
+
+  def set_dynamic(val)
+    @dynamic = val
+  end
+
+  def set_persistent(val)
+    @persistent = val
   end
 
   def set_type(type)
@@ -40,8 +54,8 @@ class Playlist
   end
 
   def set_tracks(tracks)
-    tracks.each { |track|
+    tracks.each do |track|
       @tracks << track
-    }
+    end
   end
 end
