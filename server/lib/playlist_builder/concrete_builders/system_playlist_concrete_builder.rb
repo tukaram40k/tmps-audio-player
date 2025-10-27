@@ -1,4 +1,5 @@
 require_relative '../playlist_builder'
+require_relative '../playlist'
 
 class SystemPlaylistConcreteBuilder < PlaylistBuilder
   attr_accessor :system_playlist
