@@ -1,7 +1,10 @@
 # db connector singleton
 
+require 'json'
+
 class DBConnector
-  attr_accessor :audio_files_path
+  attr_accessor :audio_files_path, :audio_files_list,
+                :audio_files_json, :audio_files_hash
 
   @instance = nil
 
@@ -13,9 +16,15 @@ class DBConnector
 
   def initialize
     @audio_files_path = File.expand_path('../../public/audio_files', File.dirname(__FILE__))
+    @audio_files_json = File.expand_path('../../db/audio_files.json', File.dirname(__FILE__))
   end
 
-  # add track pool class later
+  def load_audio_files
+    @audio_files_hash = JSON.parse(File.read(@audio_files_json))
+    @audio_files_list = list_audio_files
+  end
+
+  # lists track names
   def list_audio_files
     audio_files_list = []
 
@@ -32,7 +41,21 @@ class DBConnector
     end
     audio_files_list - %w[. ..]
   end
+
+  def validate_audio_files
+    filenames = @audio_files_list.map do |file|
+      File.basename(file, File.extname(file))
+    end
+
+    @audio_files_hash.each do |track|
+      unless filenames.include?(track['filename'])
+        raise "no such file #{track['filename']}"
+      end
+    end
+  end
 end
 
 a = DBConnector.create
-puts a.list_audio_files
+a.load_audio_files
+puts a.audio_files_list
+a.validate_audio_files
