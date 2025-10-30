@@ -12,7 +12,7 @@ class DBConnector
   end
 
   def initialize
-    @audio_files_path = File.expand_path('../../public/audio_files', __dir__)
+    @audio_files_path = File.expand_path('../../public/audio_files', File.dirname(__FILE__))
   end
 
   # add track pool class later
