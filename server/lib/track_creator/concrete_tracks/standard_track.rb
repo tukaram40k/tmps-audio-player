@@ -24,4 +24,8 @@ class StandardTrack < Track
     @lyrics = lyrics
     @release_date = release_date
   end
+
+  def to_s
+    super
+  end
 end

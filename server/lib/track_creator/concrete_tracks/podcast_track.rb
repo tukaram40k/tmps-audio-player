@@ -17,4 +17,8 @@ class PodcastTrack < Track
   def set_technical_data(bit_rate, bit_depth, audio_channels)
     super
   end
+
+  def to_s
+    super
+  end
 end

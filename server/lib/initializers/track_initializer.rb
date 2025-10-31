@@ -12,7 +12,14 @@ class TrackInitializer
     db_connector.validate_audio_files
 
     @audio_files_list = db_connector.audio_files_list
-    @audio_files_hash = db_connector.audio_files_hash
+    audio_files_hash = db_connector.audio_files_hash
+
+    audio_files_hash.each do |hash|
+      hash['url'] = db_connector.audio_files_path + '/' + hash['filename'] + '.mp3'
+      hash['file_format'] = 'mp3'
+    end
+
+    @audio_files_hash = audio_files_hash
   end
 
   # returns array of track objects

@@ -23,4 +23,8 @@ class AudiobookTrack < Track
   def set_special_data(narrator)
     @narrator = narrator
   end
+
+  def to_s
+    super
+  end
 end

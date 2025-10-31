@@ -37,4 +37,9 @@ class Track
   def set_special_data
     raise NotImplementedError
   end
+
+  def to_s
+    "=======================\n" +
+    "#{@core_data}#{@content_data}#{@technical_data}\n"
+  end
 end
