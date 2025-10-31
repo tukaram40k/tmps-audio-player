@@ -2,6 +2,7 @@
   {
     "id": 1,
     "filename": "the_queen_of_argyll",
+    "track_type": "standard",
     "title": "The Queen of Argyll",
     "duration": "4:35",
     "artist": "Silly Wizard",
@@ -20,6 +21,7 @@
   {
     "id": 2,
     "filename": "slow_dance",
+    "track_type": "standard",
     "title": "Slow Dance",
     "duration": "3:30",
     "artist": "Clairo",
@@ -38,6 +40,7 @@
   {
     "id": 3,
     "filename": "yards_gardens",
+    "track_type": "standard",
     "title": "Yards / Gardens",
     "duration": "3:15",
     "artist": "Kate Bollinger",
@@ -56,6 +59,7 @@
   {
     "id": 4,
     "filename": "papaoutai",
+    "track_type": "standard",
     "title": "Papaoutai",
     "duration": "3:52",
     "artist": "Stromae",
@@ -74,6 +78,7 @@
   {
     "id": 5,
     "filename": "shadow_of_the_moon",
+    "track_type": "standard",
     "title": "Shadow of the Moon",
     "duration": "5:00",
     "artist": "Blackmore's Night",
@@ -92,6 +97,7 @@
   {
     "id": 6,
     "filename": "the_lords_of_silence",
+    "track_type": "audiobook",
     "title": "The Lords of Silence",
     "duration": "14:20:00",
     "artist": "Chris Wraight",
@@ -110,6 +116,7 @@
   {
     "id": 7,
     "filename": "the_three_body_problem",
+    "track_type": "audiobook",
     "title": "The Three-Body Problem",
     "duration": "13:25:00",
     "artist": "Liu Cixin",
@@ -128,6 +135,7 @@
   {
     "id": 8,
     "filename": "all_tomorrows",
+    "track_type": "audiobook",
     "title": "All Tomorrows",
     "duration": "2:45:00",
     "artist": "C.M. Kosemen",
@@ -146,6 +154,7 @@
   {
     "id": 9,
     "filename": "trash_taste_ep200",
+    "track_type": "podcast",
     "title": "Trash Taste Podcast - Episode 200",
     "duration": "2:10:00",
     "artist": "Trash Taste",
@@ -164,6 +173,7 @@
   {
     "id": 10,
     "filename": "joe_rogan_ep21",
+    "track_type": "podcast",
     "title": "The Joe Rogan Experience #2100",
     "duration": "3:00:00",
     "artist": "Joe Rogan",

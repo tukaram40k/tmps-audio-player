@@ -55,7 +55,8 @@ class DBConnector
   end
 end
 
-a = DBConnector.create
-a.load_audio_files
-puts a.audio_files_list
-a.validate_audio_files
+# a = DBConnector.create
+# a.load_audio_files
+# puts a.audio_files_list
+# puts a.audio_files_hash
+# a.validate_audio_files

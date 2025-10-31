@@ -20,8 +20,7 @@ class StandardTrack < Track
     super
   end
 
-  def set_special_data(album, lyrics, release_date)
-    @album = album
+  def set_special_data(lyrics, release_date)
     @lyrics = lyrics
     @release_date = release_date
   end

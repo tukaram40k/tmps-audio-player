@@ -1,8 +1,6 @@
 require_relative '../track'
 
 class PodcastTrack < Track
-  attr_accessor
-
   def initialize
     super
     @track_type = 'Podcast'
