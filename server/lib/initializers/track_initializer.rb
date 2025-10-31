@@ -14,6 +14,7 @@ class TrackInitializer
     @audio_files_list = db_connector.audio_files_list
     audio_files_hash = db_connector.audio_files_hash
 
+    # TODO: add cover image url for each track
     audio_files_hash.each do |hash|
       hash['url'] = db_connector.audio_files_path + '/' + hash['filename'] + '.mp3'
       hash['file_format'] = 'mp3'
@@ -47,5 +48,5 @@ class TrackInitializer
   end
 end
 
-a = TrackInitializer.new
-puts a.build_tracks
+# a = TrackInitializer.new
+# puts a.build_tracks

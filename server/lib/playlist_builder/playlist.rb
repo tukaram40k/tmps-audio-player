@@ -58,4 +58,11 @@ class Playlist
       @tracks << track
     end
   end
+
+  def to_s
+    "=======================\n" +
+    "id: #{@id}\nname: #{@name}\ncreator: #{@creator}\ndescription: #{@description}\n" +
+    "privacy_settings: #{@privacy_settings}\ncreation_date: #{@creation_date}\n" +
+    "type: #{@type}\ntracks: #{@tracks}\n"
+  end
 end

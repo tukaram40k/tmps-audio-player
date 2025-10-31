@@ -5,7 +5,7 @@ class UserPlaylistConcreteBuilder < PlaylistBuilder
   attr_accessor :user_playlist
 
   def initialize
-    @user_playlist = Playlist.new
+    reset
   end
 
   def reset
@@ -13,7 +13,7 @@ class UserPlaylistConcreteBuilder < PlaylistBuilder
   end
 
   def playlist
-    user_playlist = @system_playlist
+    user_playlist = @user_playlist
     reset
     user_playlist
   end
@@ -31,7 +31,7 @@ class UserPlaylistConcreteBuilder < PlaylistBuilder
 
   def set_system_settings(privacy_settings)
     @user_playlist.set_privacy_settings(privacy_settings)
-    @user_playlist.set_allowed_order(%w[regular mixed smart custom])
+    # @user_playlist.set_allowed_order(%w[regular mixed smart custom])
     @user_playlist.set_type('user-custom-playlist')
   end
 

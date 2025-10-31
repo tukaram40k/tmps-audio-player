@@ -5,7 +5,7 @@ class ArtistPlaylistConcreteBuilder < PlaylistBuilder
   attr_accessor :artist_playlist
 
   def initialize
-    @artist_playlist = Playlist.new
+    reset
   end
 
   def reset
@@ -13,7 +13,7 @@ class ArtistPlaylistConcreteBuilder < PlaylistBuilder
   end
 
   def playlist
-    artist_playlist = @system_playlist
+    artist_playlist = @artist_playlist
     reset
     artist_playlist
   end
@@ -31,7 +31,7 @@ class ArtistPlaylistConcreteBuilder < PlaylistBuilder
 
   def set_system_settings(privacy_settings)
     @artist_playlist.set_privacy_settings(privacy_settings)
-    @artist_playlist.set_allowed_order(%w[regular mixed])
+    # @artist_playlist.set_allowed_order(%w[regular mixed])
     @artist_playlist.set_type('artist-album')
   end
 

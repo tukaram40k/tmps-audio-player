@@ -1,9 +1,14 @@
-require 'sinatra'
-require_relative 'lib/track'
+require_relative 'lib/initializers/track_initializer'
+require_relative 'lib/initializers/playlist_initializer'
 
-set :public_folder, File.dirname(__FILE__) + '/public'
+track_initializer = TrackInitializer.new
+track_list = track_initializer.build_tracks
 
-get '/' do
-  @tracks = Track.all
-  erb :index
-end
+playlist_initializer = PlaylistInitializer.new
+playlists = playlist_initializer.build_playlists
+
+puts "tracks: "
+puts track_list
+
+puts "\n\nplaylists: "
+puts playlists

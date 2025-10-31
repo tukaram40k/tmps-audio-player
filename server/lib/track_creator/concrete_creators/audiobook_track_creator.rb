@@ -12,6 +12,7 @@ class AudiobookTrackCreator < TrackCreator
       hash['title'],
       hash['duration'],
       hash['file_format'],
+      hash['filename'],
       hash['url']
     )
 

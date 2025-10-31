@@ -1,39 +1,27 @@
 # builder interface
 
 class PlaylistBuilder
-  def set_id
+  def reset
     raise NotImplementedError
   end
 
-  def set_name
+  def playlist
     raise NotImplementedError
   end
 
-  def set_creator
+  def set_id(id)
     raise NotImplementedError
   end
 
-  def set_description
+  def set_metadata(name, creator, description)
     raise NotImplementedError
   end
 
-  def set_privacy_settings
+  def set_system_settings(privacy_settings)
     raise NotImplementedError
   end
 
-  def set_creation_date
-    raise NotImplementedError
-  end
-
-  def set_order
-    raise NotImplementedError
-  end
-
-  def set_playlist_type
-    raise NotImplementedError
-  end
-
-  def set_tracks
+  def set_tracks(tracks)
     raise NotImplementedError
   end
 end

@@ -11,11 +11,12 @@ class Track
     @technical_data = TechnicalData.new
   end
 
-  def set_core_data(id, title, duration, file_format, url)
+  def set_core_data(id, title, duration, file_format, filename, url)
     @core_data.id = id
     @core_data.title = title
     @core_data.duration = duration
     @core_data.file_format = file_format
+    @core_data.filename = filename
     @core_data.url = url
   end
 

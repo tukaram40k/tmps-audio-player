@@ -6,7 +6,7 @@ class PodcastTrack < Track
     @track_type = 'Podcast'
   end
 
-  def set_core_data(id, title, duration, file_format, url)
+  def set_core_data(id, title, duration, file_format, filename, url)
     super
   end
 
