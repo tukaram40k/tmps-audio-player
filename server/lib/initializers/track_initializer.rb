@@ -2,6 +2,7 @@ require_relative '../db_connector/db_connector'
 require_relative '../track_creator/concrete_creators/standard_track_creator'
 require_relative '../track_creator/concrete_creators/audiobook_track_creator'
 require_relative '../track_creator/concrete_creators/podcast_track_creator'
+require 'json'
 
 class TrackInitializer
   attr_accessor :audio_files_list, :audio_files_hash
@@ -45,6 +46,14 @@ class TrackInitializer
     end
 
     tracks
+  end
+
+  def to_h(tracks, *_args)
+    tracks.map(&:to_h)
+  end
+
+  def to_json(tracks, *_args)
+    tracks.map(&:to_h).to_json
   end
 end
 

@@ -1,4 +1,5 @@
 require_relative '../track'
+require 'json'
 
 class StandardTrack < Track
   attr_accessor :album, :lyrics, :release_date
@@ -27,5 +28,32 @@ class StandardTrack < Track
 
   def to_s
     super
+  end
+
+  def to_h
+    {
+      id: @core_data.id,
+      title: @core_data.title,
+      duration: @core_data.duration,
+      file_format: @core_data.file_format,
+      filename: @core_data.filename,
+      track_type: @track_type,
+      url: @core_data.url,
+      artist: @content_data.artist,
+      producer: @content_data.producer,
+      album: @content_data.album,
+      genres: @content_data.genres,
+      tags: @content_data.tags,
+      language: @content_data.language,
+      bit_rate: @technical_data.bit_rate,
+      bit_depth: @technical_data.bit_depth,
+      audio_channels: @technical_data.audio_channels,
+      lyrics: @lyrics,
+      release_date: @release_date
+    }
+  end
+
+  def to_json(*_args)
+    to_h.to_json
   end
 end
