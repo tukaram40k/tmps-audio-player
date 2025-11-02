@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
+import TrackItem, { type Track } from "./TrackItem.tsx";
+import type {Playlist} from "./PlaylistBar.tsx";
 
-interface Track {
-  id: number;
-  filename: string;
-  title: string;
-  artist: string;
-  url: string;
+interface Props {
+  playlist: Playlist;
 }
 
-const TrackList: React.FC = () => {
-  const [tracks, setTracks] = useState<Track[]>([]);
+const TrackList: React.FC<Props> = ({ playlist }) => {
+  const [tracks, setTracks] = useState<Track[]>([])
 
   useEffect(() => {
     fetch("http://localhost:4567/tracks")
@@ -18,22 +16,18 @@ const TrackList: React.FC = () => {
       .catch(console.error);
   }, []);
 
+  const filteredTracks = tracks.filter((track) =>
+    playlist.tracks.includes(track.filename)
+  )
+
   return (
-    <div className="p-4 space-y-4">
-      <h1 className="text-xl font-bold">Tracks</h1>
-      {tracks.map((track) => (
-        <div
-          key={track.id}
-          className="p-3 border rounded-2xl shadow-sm bg-white"
-        >
-          <div className="font-semibold">{track.title}</div>
-          <div className="text-sm text-gray-600">{track.artist}</div>
-          <audio controls className="mt-2 w-full">
-            <source src={track.url} type="audio/mpeg" />
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-      ))}
+    <div className="p-4 space-y-4 text-neutral-100 bg-neutral-800">
+      <h1 className="text-xl font-bold">{playlist.name} — Tracks</h1>
+      {filteredTracks.length > 0 ? (
+        filteredTracks.map((track) => <TrackItem key={track.id} {...track} />)
+      ) : (
+        <p className="text-neutral-400 italic">No tracks in this playlist.</p>
+      )}
     </div>
   );
 };
