@@ -13,4 +13,8 @@ class AudioFilesRequestController
 
     full_tracks.to_json
   end
+
+  def prepare_playlists(playlists_hash)
+    playlists_hash.to_json
+  end
 end

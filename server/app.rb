@@ -9,8 +9,7 @@ tracks_hash = track_initializer.to_h(track_list)
 
 playlist_initializer = PlaylistInitializer.new
 playlists = playlist_initializer.build_playlists
-
-# set :public_folder, File.dirname(__FILE__) + '/public'
+playlists_hash = playlist_initializer.to_h(playlists)
 
 before do
   response.headers['Access-Control-Allow-Origin'] = '*'
@@ -22,8 +21,18 @@ options '*' do
   200
 end
 
+get '/' do
+  'server is up'
+end
+
 get '/tracks' do
   content_type :json
   controller = AudioFilesRequestController.new(request)
   controller.prepare_tracks(tracks_hash)
+end
+
+get '/playlists' do
+  content_type :json
+  controller = AudioFilesRequestController.new(request)
+  controller.prepare_playlists(playlists_hash)
 end

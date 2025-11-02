@@ -42,7 +42,15 @@ class PlaylistInitializer
 
     playlists
   end
+
+  def to_h(playlists, *_args)
+    playlists.map(&:to_h)
+  end
+
+  def to_json(playlists, *_args)
+    playlists.map(&:to_h).to_json
+  end
 end
 
 # a = PlaylistInitializer.new
-# puts a.build_playlists
+# puts a.to_json(a.to_h(a.build_playlists))
