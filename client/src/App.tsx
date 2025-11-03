@@ -31,7 +31,9 @@ const App: React.FC = () => {
     <ActiveTrackBar track={activeTrack} />
 
     {/* player controls */}
-    {activeTrack && <AudioPlayer track={activeTrack} />}
+    {activeTrack && <div className="flex items-center justify-center bg-neutral-800">
+      <AudioPlayer track={activeTrack} />
+    </div>}
 
     </div>
   )
