@@ -2,17 +2,19 @@ import React, { useState } from 'react'
 import './App.css'
 import PlaylistBar, { type Playlist } from "./components/PlaylistBar.tsx"
 import AudioPlayer from "./components/AudioPlayer.tsx"
-import TrackList from "./components/TrackList.tsx"
-import type { Track } from './components/TrackItem.tsx'
+import TrackList, { type Track } from "./components/TrackList.tsx"
 import ActiveTrackBar from "./components/ActiveTrackBar.tsx"
 
 const App: React.FC = () => {
-  const [showAudioPlayer, setShowAudioPlayer] = useState<boolean>(false)
   const [activeTrack, setActiveTrack] = useState<Track | null>(null)
   const [activePlaylist, setActivePlaylist] = useState<Playlist | null>(null)
 
   const handlePlaylistSelection = (playlist: Playlist) => {
     setActivePlaylist(playlist)
+  }
+
+  const handleTrackSelection = (track: Track) => {
+    setActiveTrack(track)
   }
 
   return (
@@ -21,13 +23,15 @@ const App: React.FC = () => {
     <PlaylistBar onPlaylistSelection={handlePlaylistSelection} />
 
     {/* active track list */}
-    {activePlaylist && <TrackList playlist={activePlaylist}/>}
+    {activePlaylist &&
+        <TrackList playlist={activePlaylist} onTrackSelection={handleTrackSelection} />
+    }
 
-    {/* playlist sidebar left */}
-    <ActiveTrackBar />
+    {/* active track bar */}
+    <ActiveTrackBar track={activeTrack} />
 
     {/* player controls */}
-    { showAudioPlayer && <AudioPlayer /> }
+    {activeTrack && <AudioPlayer track={activeTrack} />}
 
     </div>
   )

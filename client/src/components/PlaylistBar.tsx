@@ -37,7 +37,7 @@ const PlaylistBar: React.FC<Props> = ({ onPlaylistSelection }) => {
   }, [activePlaylist]);
 
   return (
-    <div className={`bg-neutral-900 text-neutral-200 p-3 h-full flex flex-col transition-all duration-300 ${expanded ? 'w-64' : 'w-20'}`}>
+    <div className={`bg-neutral-900 text-neutral-200 p-3 h-full flex flex-col transition-all duration-300 ${expanded ? 'w-86' : 'w-20'}`}>
       {/* Collapse Button */}
       <button
         onClick={() => setExpanded(!expanded)}

@@ -1,6 +1,11 @@
 import React from 'react'
+import type {Track} from "./TrackList.tsx";
 
-const AudioPlayer: React.FC = () => {
+interface Props {
+  track: Track;
+}
+
+const AudioPlayer: React.FC<Props> = ({ track }) => {
   return (
     <div className="bg-amber-300">player</div>
   )
