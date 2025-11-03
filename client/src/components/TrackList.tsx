@@ -12,6 +12,10 @@ export interface Track {
   title: string;
   artist: string;
   url: string;
+  producer: string;
+  album: string;
+  release_date: string;
+  lyrics: string;
 }
 
 const TrackList: React.FC<Props> = ({ playlist, onTrackSelection}) => {
