@@ -132,5 +132,10 @@ class PlaylistDirector
 end
 ```
 
+### Results
+In order to better visualize the project, I implemented a web user interface using TypeScript with React. It is a single-page application that provides ui to select a playlist, select a track from it and play the track. It also shows additional information about the track in the sidebar.
+
+![img.png](img/img.png)
+
 ### Conclusion
 In this laboratory work I implemented creational design patterns in a project. Using these patterns makes the process of creating new objects much less messy. It also helps a lot when you need to expand the system or add new functionality, because these patterns are designed to be scalable and help with managing complex systems.
