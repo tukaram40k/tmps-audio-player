@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
-import type { Track } from './TrackList.tsx'
+import type { Track } from '../TrackList.tsx'
 import { Play, Pause } from 'lucide-react'
 
 interface Props {
@@ -55,7 +55,7 @@ const AudioPlayer: React.FC<Props> = ({ track }) => {
       <div className="font-semibold">{track.title}</div>
       <div className="text-sm text-gray-400">{track.artist}</div>
 
-      <div className="flex items-center w-full gap-4 mt-4 w-full">
+      <div className="flex items-center w-full gap-4 mt-4">
         <button
           onClick={togglePlay}
           className="bg-neutral-700 hover:bg-neutral-600 p-3 rounded-full"

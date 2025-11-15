@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './App.css'
 import PlaylistBar, { type Playlist } from "./components/PlaylistBar.tsx"
-import AudioPlayer from "./components/AudioPlayer.tsx"
+import AudioPlayer from "./components/audio_player/AudioPlayer.tsx"
 import TrackList, { type Track } from "./components/TrackList.tsx"
 import ActiveTrackBar from "./components/ActiveTrackBar.tsx"
 
