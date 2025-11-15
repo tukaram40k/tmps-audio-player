@@ -43,4 +43,12 @@ class Track
     "=======================\n" +
     "#{@core_data}#{@content_data}#{@technical_data}\n"
   end
+
+  def to_h
+    raise NotImplementedError
+  end
+
+  def to_json(*_args)
+    raise NotImplementedError
+  end
 end

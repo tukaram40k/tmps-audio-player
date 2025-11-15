@@ -65,4 +65,20 @@ class Playlist
     "privacy_settings: #{@privacy_settings}\ncreation_date: #{@creation_date}\n" +
     "type: #{@type}\ntracks: #{@tracks}\n"
   end
+
+  def to_h
+    {
+      id: @id,
+      name: @name,
+      creator: @creator,
+      description: @description,
+      privacy_settings: @privacy_settings,
+      creation_date: @creation_date,
+      allowed_order: @allowed_order,
+      dynamic: @dynamic,
+      type: @type,
+      persistent: @persistent,
+      tracks: @tracks
+    }
+  end
 end
