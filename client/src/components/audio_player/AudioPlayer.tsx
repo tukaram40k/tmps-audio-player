@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
 import type { Track } from '../TrackList.tsx'
+import { type AudioAdapter, createAudioAdapter } from './file_format_adapter.ts'
 import { Play, Pause } from 'lucide-react'
 
 interface Props {
@@ -8,9 +9,16 @@ interface Props {
 
 const AudioPlayer: React.FC<Props> = ({ track }) => {
   const audioRef = useRef<HTMLAudioElement>(null)
+  const [audioUrl, setAudioUrl] = useState<string | null>(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [progress, setProgress] = useState(0)
   const [duration, setDuration] = useState(0)
+
+  useEffect(() => {
+    const adapter = createAudioAdapter(track)
+    const url = adapter.getUrl()
+    setAudioUrl(url)
+  }, [track]);
 
   const togglePlay = () => {
     const audio = audioRef.current
@@ -79,7 +87,7 @@ const AudioPlayer: React.FC<Props> = ({ track }) => {
         </div>
       </div>
 
-      <audio ref={audioRef} src={track.url}/>
+      { audioUrl && <audio ref={audioRef} src={audioUrl}/>}
     </div>
   )
 }

@@ -9,6 +9,7 @@ interface Props {
 export interface Track {
   id: number;
   filename: string;
+  file_format: string;
   title: string;
   artist: string;
   url: string;

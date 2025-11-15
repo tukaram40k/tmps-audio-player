@@ -1,5 +1,5 @@
 import React from 'react'
-import type {Track} from "./TrackList.tsx";
+import type { Track } from "./TrackList.tsx";
 
 interface Props {
   track: Track | null;
@@ -11,12 +11,13 @@ const ActiveTrackBar: React.FC<Props> = ({ track }) => {
       {/* Active Track */}
       {track &&
           <div>
-              <div className="font-semibold">{track.title}</div>
-              <div className="text-sm text-gray-400">{track.artist}</div>
-              <div className="text-sm text-gray-400 mt-2">Producer: {track.producer}</div>
-              <div className="text-sm text-gray-400">Album: {track.album}</div>
-              <div className="font-semibold mt-2">Lyrics</div>
-              <div className="text-sm text-gray-400 mt-2">{track.lyrics}</div>
+            <div className="font-semibold">{track.title}</div>
+            <div className="text-sm text-gray-400">{track.artist}</div>
+            <div className="text-sm text-gray-400 mt-2">Producer: {track.producer}</div>
+            <div className="text-sm text-gray-400">Album: {track.album}</div>
+            <div className="text-sm text-gray-400 mt-2">File format: {track.file_format}</div>
+            <div className="font-semibold mt-2">Lyrics</div>
+            <div className="text-sm text-gray-400 mt-2">{track.lyrics}</div>
           </div>}
     </div>
   );
