@@ -1,6 +1,6 @@
 require 'sinatra'
-require_relative 'lib/initializers/track_initializer'
-require_relative 'lib/initializers/playlist_initializer'
+require_relative 'lib/facades/track_initializer'
+require_relative 'lib/facades/playlist_initializer'
 require_relative 'controllers/audio_files_request_controller'
 
 track_initializer = TrackInitializer.new

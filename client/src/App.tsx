@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import './App.css'
 import PlaylistBar, { type Playlist } from "./components/PlaylistBar.tsx"
 import AudioPlayer from "./components/audio_player/AudioPlayer.tsx"
-import TrackList, { type Track } from "./components/TrackList.tsx"
+import { type Track } from "./components/track_proxy/proxy_track.ts"
+import TrackList from './components/TrackList.tsx'
 import ActiveTrackBar from "./components/ActiveTrackBar.tsx"
 
 const App: React.FC = () => {

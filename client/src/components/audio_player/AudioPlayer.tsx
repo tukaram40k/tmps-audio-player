@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
-import type { Track } from '../TrackList.tsx'
+import type { Track } from '../track_proxy/proxy_track.ts'
 import { type AudioAdapter, createAudioAdapter } from './file_format_adapter.ts'
 import { Play, Pause } from 'lucide-react'
 

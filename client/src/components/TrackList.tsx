@@ -1,34 +1,28 @@
 import React, { useEffect, useState } from "react";
-import type {Playlist} from "./PlaylistBar.tsx";
+import type { Playlist } from "./PlaylistBar.tsx";
+import { ProxyTrack } from './track_proxy/proxy_track.ts' // your proxy class
+import type { Track, User } from './track_proxy/proxy_track.ts'
 
 interface Props {
   playlist: Playlist;
   onTrackSelection: (track: Track) => void;
 }
 
-export interface Track {
-  id: number;
-  filename: string;
-  file_format: string;
-  title: string;
-  artist: string;
-  url: string;
-  producer: string;
-  album: string;
-  release_date: string;
-  lyrics: string;
-}
-
-const TrackList: React.FC<Props> = ({ playlist, onTrackSelection}) => {
-  const [tracks, setTracks] = useState<Track[]>([])
-  const [activeTrack, setActiveTrack] = useState<Track | null>(null)
+const TrackList: React.FC<Props> = ({ playlist, onTrackSelection }) => {
+  const [tracks, setTracks] = useState<Track[]>([]);
+  const [activeTrack, setActiveTrack] = useState<Track | null>(null);
 
   useEffect(() => {
+    const user: User = { isPremium: false };
+
     fetch("http://localhost:4567/tracks")
       .then((res) => res.json())
-      .then((data) => setTracks(data))
+      .then((data: Track[]) => {
+        const proxied = data.map(t => new ProxyTrack(t, user));
+        setTracks(proxied);
+      })
       .catch(console.error);
-  }, [])
+  }, []);
 
   useEffect(() => {
     if (activeTrack) {
@@ -38,11 +32,12 @@ const TrackList: React.FC<Props> = ({ playlist, onTrackSelection}) => {
 
   const filteredTracks = tracks.filter((track) =>
     playlist.tracks.includes(track.filename)
-  )
+  );
 
   return (
     <div className="p-4 space-y-4 text-neutral-100 bg-neutral-800">
       <h1 className="text-xl font-bold">{playlist.name} — Tracks</h1>
+
       {filteredTracks.length > 0 ? (
         filteredTracks.map((track) =>
           <div
@@ -63,7 +58,7 @@ const TrackList: React.FC<Props> = ({ playlist, onTrackSelection}) => {
           </div>
         )
       ) : (
-          <p className="text-neutral-400 italic">No tracks in this playlist.</p>
+        <p className="text-neutral-400 italic">No tracks in this playlist.</p>
       )}
     </div>
   );

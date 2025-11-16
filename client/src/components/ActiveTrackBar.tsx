@@ -1,5 +1,5 @@
 import React from 'react'
-import type { Track } from "./TrackList.tsx";
+import type { Track } from "./track_proxy/proxy_track.ts";
 
 interface Props {
   track: Track | null;
