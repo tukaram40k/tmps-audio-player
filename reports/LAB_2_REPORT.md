@@ -77,6 +77,22 @@ class WavAdapter implements AudioAdapter {
 }
 ```
 
+The adapter interface will then choose the appropriate implementation, and the client doesn't need to worry about it:
+
+```typescript
+export function createAudioAdapter(track: Track): AudioAdapter {
+  const filename = track.url.split('.').pop()?.toLowerCase()
+
+  switch (filename) {
+    case 'mp3': return new Mp3Adapter(track)
+    case 'wav': return new WavAdapter(track)
+    case 'flac': return new FlacAdapter(track)
+    default:
+      throw new Error(`Unsupported format: ${filename}`)
+  }
+}
+```
+
 Each adapter has their own way of processing an audio file of their type, but the result they produce will work perfectly fine with the rest of the system, because they all follow the same interface.
 
 #### Proxy
