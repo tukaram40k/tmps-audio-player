@@ -1,4 +1,4 @@
-import type { Track } from '../TrackList.tsx'
+import type { Track } from '../track_proxy/proxy_track.ts'
 
 export interface AudioAdapter {
   getUrl(): string
